@@ -2,7 +2,7 @@ import mongoose from "mongoose"
 
 const orderSchema = new mongoose.Schema(
   {
-    /////first section of the products details
+    /////first section of the products details1
 
     orderItems: [
       {
