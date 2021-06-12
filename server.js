@@ -20,12 +20,11 @@ app.use(express.json())
 connectDb() //connecting to database
 
 //pathes
-app.use("/api/users", userRouter)
-app.use("/api/products", productRouter)
-app.use("/api/orders", orderRouter)
-app.use("/api/categories", categoryRouter)
-app.use("/api/subcategories", subcategoryRouter)
-// app.use("/api/categories", categoryRouter)
+app.use("/users", userRouter)
+app.use("/products", productRouter)
+app.use("/orders", orderRouter)
+app.use("/categories", categoryRouter)
+app.use("/subcategories", subcategoryRouter)
 
 app.get("/", (req, res) => {
   res.send("Hello To Elever API")
