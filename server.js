@@ -1,6 +1,7 @@
 import express from "express"
 import userRouter from "./routers/userRouter.js"
 import dotenv from "dotenv"
+import cors from "cors"
 import productRouter from "./routers/productRouter.js"
 import orderRouter from "./routers/orderRouter.js"
 import categoryRouter from "./routers/categoryRouter.js"
@@ -10,6 +11,7 @@ import connectDb from "./config/db.js"
 dotenv.config()
 
 const app = express()
+app.use(cors())
 
 ///should be at first to upload photos
 app.use(express.json({ limit: "50mb", extended: true }))
