@@ -71,3 +71,39 @@ export const deleteProduct = expressAsyncHandler(async (req, res) => {
     res.status(404).send({ message: "Product Not Found" })
   }
 })
+
+///deleting product in deleted subcategory router
+export const deleteProductSubcategory = expressAsyncHandler(async (req, res) => {
+  const product = await Product.find({ subcategory: req.params.id })
+  // console.log(product[1])
+
+  if (product) {
+    // const deleteProduct = await product.remove()
+    product.map(async (product) => {
+      product = await product.remove()
+      console.log("deletedProduct")
+    })
+
+    res.send({ message: "Product Deleted", product: deleteProduct })
+  } else {
+    res.status(404).send({ message: "Product Not Found" })
+  }
+})
+
+///deleting product in deleted category router
+export const deleteProductCategory = expressAsyncHandler(async (req, res) => {
+  const product = await Product.find({ category: req.params.id })
+  // console.log(product[1])
+
+  if (product) {
+    // const deleteProduct = await product.remove()
+    product.map(async (product) => {
+      product = await product.remove()
+      console.log("deletedProduct")
+    })
+
+    res.send({ message: "Product Deleted", product: deleteProduct })
+  } else {
+    res.status(404).send({ message: "Product Not Found" })
+  }
+})

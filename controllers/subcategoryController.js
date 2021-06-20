@@ -57,3 +57,18 @@ export const deleteSubcategory = expressAsyncHandler(async (req, res) => {
     res.status(404).send({ message: "Subcategory Not Found" })
   }
 })
+
+///deleting subcategory related to category router
+
+export const deleteRelSubcategory = expressAsyncHandler(async (req, res) => {
+  const subcategory = await Subcategory.find({ category: req.params.id })
+  if (subcategory) {
+    // const deleteProduct = await product.remove()
+    subcategory.map(async (subcategory) => {
+      subcategory = await subcategory.remove()
+      console.log("deletedSub")
+    })
+  } else {
+    res.status(404).send({ message: "Subcategory Not Found" })
+  }
+})
